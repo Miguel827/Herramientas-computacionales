@@ -1,0 +1,94 @@
+{
+  "tests": [
+    {
+      "name": "pattern",
+      "setup": "",
+      "run": "! grep -c \"1.519798756921518e-05\" 1.cpp",
+      "input": "",
+      "output": "0",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": 0
+    },
+    {
+      "name": "Compilation 1",
+      "setup": "",
+      "run": "make 1.x",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 5
+    },
+    {
+      "name": "test1A",
+      "setup": "make 1.x",
+      "run": "./1.x 40000 | awk '{ if (sqrt((1 - $1/1.519798756921518e-05)^2)<0.05) print \"PASSED\"; }  '",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 10
+    },
+    {
+      "name": "test 1B",
+      "setup": "make 1.x",
+      "run": "./1.x 32456 | awk '{ if (sqrt((1 - $2/1.873051936614120e-05)^2)<0.05) print \"PASSED\"; }  '",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 5
+    },
+    {
+      "name": "test 1C",
+      "setup": "make 1.x",
+      "run": "./1.x 1234  | awk '{ if (sqrt((1 - $2/4.924480102161989e-04)^2)<0.05) print \"PASSED\"; }  '",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 5
+    },
+    {
+      "name": "test 2A",
+      "setup": "make 2.x",
+      "run": "./2.x 53 4.2 | awk '{ if ($1 < 1.0e-15) print \"PASSED\"; }  '",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 10
+    },
+    {
+      "name": "test 2B",
+      "setup": "make 2.x",
+      "run": "./2.x 20 4.2 | awk '{ if ($1 < 1.0e-6) print \"PASSED\"; }  '",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 5
+    },
+    {
+      "name": "test 2C",
+      "setup": "make 2.x",
+      "run": "./2.x 10 4.2 | awk '{ if ($1 < 1.0e-3) print \"PASSED\"; }  '",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 5
+    },
+    {
+      "name": "Compilation 2",
+      "setup": "",
+      "run": "make 2.x",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 5
+    }
+  ]
+}
